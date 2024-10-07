@@ -1,0 +1,34 @@
+{
+  //   "compilerOptions": {
+  //     "module": "commonjs",
+  //     // "target": "es5",
+  //     "allowJs": true,
+  //     "checkJs": false,
+  //     "jsx": "react",
+  //     // "outDir": "./build",
+  //     "rootDir": "./",
+  //     "removeComments": true,
+  //     "noEmit": true,
+  //     "pretty": true,
+  //     "skipLibCheck": true,
+  //     "strict": true,
+  //     "moduleResolution": "node",
+  //     "esModuleInterop": true
+  //   },
+  //   "exclude": ["node_modules"]
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
+    "baseUrl": ".",
+    "jsx": "react",
+    "paths": {
+      "assets/*": ["assets/*"]
+    }
+  },
+  "include": ["assets/**/*.ts", "assets/**/*.tsx", "assets/**/*.vue","assets/**/*.jsx","assets/**/*.js"],
+  "exclude": ["node_modules"]
+}
