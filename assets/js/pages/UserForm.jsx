@@ -32,9 +32,7 @@ const UserForm = (props) => {
   };
   const [userData, setUserData] = useState(initialState);
   const [roles, setRoles] = useState();
-  const [services, setServices] = useState();
   const [isEditing, setIsEditing] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (props.user) {
@@ -58,9 +56,7 @@ const UserForm = (props) => {
   const fetchData = async () => {
     try {
       const roles = await RoleAPI.findAll();
-      const services = await ServiceAPI.findAll();
       setRoles(roles);
-      setServices(services);
     } catch (error) {}
   };
 
@@ -162,25 +158,6 @@ const UserForm = (props) => {
                     </Select>
                   </FormControl>
                   </Grid>
-                <Grid item xs={12} md={6}>
-                  <FormControl fullWidth margin="normal">
-                    <InputLabel>Service</InputLabel>
-                    <Select
-                      value={userData.service}
-                      name="service"
-                      onChange={handleInputChange}
-                      id="service"
-                      defaultValue={""}
-                    >
-                      <MenuItem value="">Sélectionnez un Service</MenuItem>
-                      {services?.map((service, index) => (
-                        <MenuItem key={index} value={service["@id"]}>
-                          {service.name}
-                        </MenuItem>
-                      ))}
-                    </Select>
-                  </FormControl>
-                </Grid>
                 <Grid item xs={12}>
                   <Button type="submit" variant="contained" color="primary">
                     {isEditing ? "Modifier Utilisateur" : "Créer Utilisateur"}

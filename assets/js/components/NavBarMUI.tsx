@@ -27,6 +27,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import AuthAPI from "../services/AuthAPI";
 import CustomizedSwitches from "./MUISwitch";
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 const drawerWidth = 240;
 
@@ -189,20 +190,20 @@ export default function NavBarAndSideBar() {
         <Divider />
         <List>
           <div>
-            <ListItemButton onClick={() => navigate("/")}>
+            {isAuthenticated && (
+              <>
+                { <ListItemButton onClick={() => navigate("/calendrier")}>
+                  <ListItemIcon>
+                    <CalendarMonthIcon />
+                  </ListItemIcon>
+                  <ListItemText primary="Calendrier" />
+                </ListItemButton> }
+                {<ListItemButton onClick={() => navigate("/")}>
               <ListItemIcon>
                 <DashboardIcon />
               </ListItemIcon>
               <ListItemText primary="Dashboard" />
-            </ListItemButton>
-            {isAuthenticated && (
-              <>
-                {/* <ListItemButton onClick={() => navigate("/ticket")}>
-                  <ListItemIcon>
-                    <AssignmentIcon />
-                  </ListItemIcon>
-                  <ListItemText primary="Tickets" />
-                </ListItemButton> */}
+            </ListItemButton>}
               </>
             )}
           </div>
