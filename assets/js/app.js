@@ -16,6 +16,7 @@ import LoginPage from "./pages/LoginPage";
 import UsersPage from "./pages/UsersPage";
 import AuthAPI from "./services/AuthAPI";
 import ToggleColorModeProvider from "./services/ToggleColorModeProvider";
+import CalendarPage from "./pages/CalendarPage";
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(
@@ -89,7 +90,8 @@ const App = () => {
             >
               <Routes>
                 <Route path="/login" element={<LoginPage />} />
-                <Route path="/" element={<HomePage />} />
+                <Route path="/dashboard" element={<HomePage />} />
+                <Route path="/calendrier" element={<CalendarPage />} />
                 {adminRoute("/users", <UsersPage />)}
                 <Route path="*" element={<Navigate to="/" />} />
               </Routes>

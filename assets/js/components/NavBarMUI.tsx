@@ -198,7 +198,7 @@ export default function NavBarAndSideBar() {
                   </ListItemIcon>
                   <ListItemText primary="Calendrier" />
                 </ListItemButton> }
-                {<ListItemButton onClick={() => navigate("/")}>
+                {<ListItemButton onClick={() => navigate("/dashboard")}>
               <ListItemIcon>
                 <DashboardIcon />
               </ListItemIcon>
