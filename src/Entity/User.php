@@ -67,10 +67,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[Groups(['user:read', 'user:create', 'user:update'])]
     private ?string $numero = null;
 
-    #[ORM\ManyToOne(inversedBy: 'users')]
-    #[Groups(['user:read', 'user:create', 'user:update'])]
-    private ?Service $service = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -175,15 +171,4 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getService(): ?Service
-    {
-        return $this->service;
-    }
-
-    public function setService(?Service $service): static
-    {
-        $this->service = $service;
-
-        return $this;
-    }
 }
